@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Xam.Plugins.ImageCropper</id>
-    <version>1.2.0</version>
+    <version>1.2.2</version>
     <title>Xam.Plugins.ImageCropper</title>
     <authors>Michael Ridland @ XAM Consulting</authors>
     <owners>Michael Ridland @ XAM Consulting</owners>
@@ -21,6 +21,12 @@
 1.2.0
 [fix] Upload package App Store
 [feature] Update Android package to 2.4.6
+
+1.2.1
+[feature] Update Android package to 2.5.1
+
+1.2.2
+[feature] Update iOS component to 2.3.4
     </releaseNotes>
     <dependencies>
       <group targetFramework="monoandroid71">

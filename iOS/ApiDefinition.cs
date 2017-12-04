@@ -136,6 +136,8 @@ namespace Xam.Plugins.ImageCropper.iOS
         [Export("initWithCroppingStyle:image:")]
         IntPtr Constructor(TOCropViewCroppingStyle style, UIImage image);
 
+		[Export ("performInitialSetup")]
+		void PerformInitialSetup ();
         // -(void)setSimpleRenderMode:(BOOL)simpleMode animated:(BOOL)animated;
         [Export("setSimpleRenderMode:animated:")]
         void SetSimpleRenderMode(bool simpleMode, bool animated);
@@ -186,9 +188,11 @@ namespace Xam.Plugins.ImageCropper.iOS
     interface TOCropToolbar
     {
         // @property (assign, nonatomic) BOOL statusBarVisible;
-        [Export("statusBarVisible")]
-        bool StatusBarVisible { get; set; }
+		[Export ("statusBarHeightInset")]
+		nfloat StatusBarHeightInset { get; set; }
 
+		[Export ("backgroundViewOutsets", ArgumentSemantic.Assign)]
+		UIEdgeInsets BackgroundViewOutsets { get; set; }
         // @property (readonly, nonatomic, strong) UIButton * _Nonnull doneTextButton;
         [Export("doneTextButton", ArgumentSemantic.Strong)]
         UIButton DoneTextButton { get; }
@@ -197,6 +201,8 @@ namespace Xam.Plugins.ImageCropper.iOS
         [Export("doneIconButton", ArgumentSemantic.Strong)]
         UIButton DoneIconButton { get; }
 
+		[Export ("doneTextButtonTitle")]
+		string DoneTextButtonTitle { get; set; }
         // @property (readonly, nonatomic, strong) UIButton * _Nonnull cancelTextButton;
         [Export("cancelTextButton", ArgumentSemantic.Strong)]
         UIButton CancelTextButton { get; }
@@ -205,6 +211,8 @@ namespace Xam.Plugins.ImageCropper.iOS
         [Export("cancelIconButton", ArgumentSemantic.Strong)]
         UIButton CancelIconButton { get; }
 
+		[Export ("cancelTextButtonTitle")]
+		string CancelTextButtonTitle { get; set; }
         // @property (readonly, nonatomic, strong) UIButton * _Nonnull rotateCounterclockwiseButton;
         [Export("rotateCounterclockwiseButton", ArgumentSemantic.Strong)]
         UIButton RotateCounterclockwiseButton { get; }
@@ -218,7 +226,7 @@ namespace Xam.Plugins.ImageCropper.iOS
         UIButton ClampButton { get; }
 
         // @property (readonly, nonatomic, strong) UIButton * _Nonnull rotateClockwiseButton;
-        [Export("rotateClockwiseButton", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("rotateClockwiseButton", ArgumentSemantic.Strong)]
         UIButton RotateClockwiseButton { get; }
 
         // @property (readonly, nonatomic) UIButton * _Nonnull rotateButton;
@@ -348,6 +356,12 @@ namespace Xam.Plugins.ImageCropper.iOS
         [Export("customAspectRatio", ArgumentSemantic.Assign)]
         CGSize CustomAspectRatio { get; set; }
 
+		[NullAllowed, Export ("titleLabel")]
+		UILabel TitleLabel { get; }
+		[NullAllowed, Export ("doneButtonTitle")]
+		string DoneButtonTitle { get; set; }
+		[NullAllowed, Export ("cancelButtonTitle")]
+		string CancelButtonTitle { get; set; }
         // @property (assign, nonatomic) BOOL aspectRatioLockEnabled;
         [Export("aspectRatioLockEnabled")]
         bool AspectRatioLockEnabled { get; set; }
