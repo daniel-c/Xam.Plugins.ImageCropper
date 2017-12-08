@@ -10,7 +10,7 @@ all: clean TOCropViewController.framework
 
 Podfile.lock:
 	mkdir -p ios
-	cd ios && git clone https://github.com/TimOliver/TOCropViewController.git
+	cd ios && git clone https://github.com/daniel-c/TOCropViewController.git
 	cd ios/TOCropViewController && git checkout $(IOS_GIT_BRANCH)
 
 TOCropViewController-iphonesimulator: Podfile.lock
